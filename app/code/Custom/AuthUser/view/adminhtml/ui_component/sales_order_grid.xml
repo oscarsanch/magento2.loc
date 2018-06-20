@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <actionsColumn name="login_as_customer" class="Custom\AuthUser\Ui\Component\Listing\Column\OrderCustomerActions">
+            <settings>
+                <label translate="true">Login as customer</label>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

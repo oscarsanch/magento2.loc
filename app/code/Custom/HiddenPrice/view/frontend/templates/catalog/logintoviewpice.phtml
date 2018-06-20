@@ -1,0 +1,11 @@
+<?php
+$url = $block->getPreviuosUrl();
+$login_url = $block->getUrl('customer/account/login', array('referer' => base64_encode($url)));
+?>
+
+<?php if ($block->canShowButton()): ?>
+    <div class="to_login_page">
+        <a class="action primary" href="<?= $login_url ?>">Login to view price</a>
+    </div>
+    <br/>
+<?php endif; ?>

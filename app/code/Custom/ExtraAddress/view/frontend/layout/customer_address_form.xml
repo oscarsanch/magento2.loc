@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_address_form"/>
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock name="customer_address_edit" remove="true"/>
+            <block class="Custom\ExtraAddress\Block\Address\Edit" name="extra_address_edit" template="address/edit.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

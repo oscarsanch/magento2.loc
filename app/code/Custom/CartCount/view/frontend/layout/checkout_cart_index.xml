@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+       <referenceContainer name="checkout.cart.container">
+              <block class="Custom\CartCount\Block\AjaxCart" name="ajax.cart" template="Custom_CartCount::ajaxcart.phtml" after="checkout.cart.form"/>
+       </referenceContainer>
+</page>

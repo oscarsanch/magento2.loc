@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_quote_address_save_after">
+        <observer name="fieldaddress" instance="Custom\ExtraAddress\Observer\Address" shared="false" />
+    </event>
+    <event name="sales_order_address_save_after">
+        <observer name="fieldaddress" instance="Custom\ExtraAddress\Observer\Order\Address" shared="false" />
+    </event>
+    <event name="sales_quote_address_collection_load_before">
+        <observer name="fieldaddress" instance="Custom\ExtraAddress\Observer\AddressCollectionLoad" shared="false" />
+    </event>
+    <event name="sales_order_address_collection_load_before">
+        <observer name="fieldaddress" instance="Custom\ExtraAddress\Observer\Order\AddressCollectionLoad" shared="false" />
+    </event>
+</config>

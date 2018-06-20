@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <bonuspayment>
+                <active>1</active>
+                <title>Bonuspayment</title>
+                <order_status>pending_payment</order_status>
+                <bonuses>800</bonuses>
+                <instructions>Instruction.</instructions>
+                <model>Custom\PaymentMethod\Model\PaymentMethodBonus</model>
+                <group>offline</group>
+            </bonuspayment>
+        </payment>
+    </default>
+</config>

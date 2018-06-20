@@ -1,0 +1,30 @@
+<?php $links = $block->getLinks(); ?>
+<?php if ($links->count()): ?>
+    <div class="block block-links">
+        <hr>
+        <h3>Это блок для вывода ссылок с кликабельностью</h3>
+        <style>
+            .toolbar {
+                margin-bottom: 10px;
+            }
+            .limiter {
+                position:absolute;
+                top:0;
+                right: 0;
+            }
+        </style>
+        <ul>
+            <?php if ($block->getPagerHtml()): ?>
+                <div class="order-products-toolbar toolbar bottom custom-pager"><?php echo $block->getPagerHtml(); ?></div>
+            <?php endif ?>
+            <?php foreach ($links->getData() as $link): ?>
+                <li id="li">
+                    <a href="<?= $block->getBaseUrl().$link['url_key'] ?>" title="<?=  $link['url_key'] ?>">
+                        <span><?= $link['text'] ?></span>
+                    </a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <hr>
+    </div>
+<?php endif ?>

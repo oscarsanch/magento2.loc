@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="shortcut_buttons_container">
+        <observer name="ajaxcart" instance="Custom\Cart\Observer\Addshortcut"/>
+    </event>
+    <event name="checkout_cart_add_product_complete">
+        <observer name="ajaxcart" instance="Custom\Cart\Observer\Addproduct"/>
+    </event>
+</config>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Custom_AuthUser::login_grid" title="Login as Customer" translate="title" module="Custom_AuthUser" sortOrder="60" parent="Magento_Customer::customer" action="loginascustomer/logger/grid" resource="Custom_AuthUser::login_grid"/>
+    </menu>
+</config>

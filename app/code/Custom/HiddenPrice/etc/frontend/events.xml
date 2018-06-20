@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="catalog_product_collection_load_after">
+        <observer name="hide_price_collection" instance="Custom\HiddenPrice\Observer\CollectionPrice" />
+    </event>
+    <event name="catalog_product_load_after">
+        <observer name="hide_price_product" instance="Custom\HiddenPrice\Observer\ProductPrice" />
+    </event>
+    <event name="catalog_product_is_salable_after">
+        <observer name="hide_salable_product" instance="Custom\HiddenPrice\Observer\SalablePrice" />
+    </event>
+</config>

@@ -1,0 +1,10 @@
+<?php /** @var $block \Custom\DefaultProduct\Block\Product\Renderer\Configurable */ ?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-options]": {
+            "Custom_DefaultProduct/js/default-product": {
+                "jsonDefault": <?= /* @escapeNotVerified */ $block->getDefaultProduct() ?>
+            }
+        }
+    }
+</script>

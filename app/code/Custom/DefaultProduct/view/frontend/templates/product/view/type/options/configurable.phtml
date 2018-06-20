@@ -1,0 +1,10 @@
+<?php /** @var $block \Custom\DefaultProduct\Block\Product\Renderer\Configurable */ ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Custom_DefaultProduct/js/default-product": {
+                "jsonDefault": <?= /* @escapeNotVerified */ $block->getDefaultProduct() ?>
+            }
+        }
+    }
+</script>

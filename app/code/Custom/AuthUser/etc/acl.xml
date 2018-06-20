@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Customer::customer">
+                    <resource id="Custom_AuthUser::login" title="Login As Customer" sortOrder="50">
+                        <resource id="Custom_AuthUser::login_button" title="Login As Customer Button" sortOrder="10" />
+                        <resource id="Custom_AuthUser::login_grid" title="Login As Customer Grid" sortOrder="20" />
+                        <resource id="Custom_AuthUser::login_plugin" title="Login As Customer Grid" sortOrder="30" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

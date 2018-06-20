@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="cartajax" translate="label" sortOrder="100">
+            <label>Cart with ajax</label>
+        </tab>
+        <section id="cartajax" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Configuration Cart popup</label>
+            <tab>cartajax</tab>
+            <resource>Custom_Cart::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cart Menu Configuration Options</label>
+                <field id="cart_add_delay" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cart Add Popup Delay</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

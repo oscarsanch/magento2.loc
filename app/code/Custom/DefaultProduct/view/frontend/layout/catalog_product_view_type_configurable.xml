@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view_type_configurable.xml"/>
+    <body>
+        <referenceBlock name="product.info.options.wrapper">
+            <block class="Custom\DefaultProduct\Block\Product\Renderer\Configurable" name="options.swatches.default" as="swatch_options_default" after="product.info.options.swatches" />
+        </referenceBlock>
+    </body>
+</page>

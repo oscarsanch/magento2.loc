@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_category_view"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Custom\ImageCategory\Block\ImageView" name="custom_image" template="Custom_ImageCategory::custom_image_category.phtml" before="require-cookie"/>
+        </referenceContainer>
+    </body>
+</page>
