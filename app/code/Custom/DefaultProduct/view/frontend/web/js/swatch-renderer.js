@@ -4,7 +4,7 @@ define([
 ], function ($, _) {
     'use strict';
 
-    return function (widget) {
+      return function (widget) {
 
         $.widget('mage.SwatchRenderer', widget, {
 
@@ -67,48 +67,6 @@ define([
                 }
             },
 
-            _OnClick: function ($this, $widget, eventName) {
-                var $parent = $this.parents('.' + $widget.options.classes.attributeClass),
-                    $wrapper = $this.parents('.' + $widget.options.classes.attributeOptionsWrapper),
-                    $label = $parent.find('.' + $widget.options.classes.attributeSelectedOptionLabelClass),
-                    attributeId = $parent.attr('attribute-id'),
-                    $input = $parent.find('.' + $widget.options.classes.attributeInput);
-
-                if ($widget.inProductList) {
-                    $input = $widget.productForm.find(
-                        '.' + $widget.options.classes.attributeInput + '[name="super_attribute[' + attributeId + ']"]'
-                    );
-                }
-
-                if ($this.hasClass('disabled')) {
-                    return;
-                }
-
-                if ($this.hasClass('selected')) {
-                    $parent.removeAttr('option-selected').find('.selected').removeClass('selected');
-                    $input.val('');
-                    $label.text('');
-                    $this.attr('aria-checked', false);
-                } else {
-                    $parent.attr('option-selected', $this.attr('option-id')).find('.selected').removeClass('selected');
-                    $label.text($this.attr('option-label'));
-                    $input.val($this.attr('option-id'));
-                    $input.attr('data-attr-name', this._getAttributeCodeById(attributeId));
-                    $this.addClass('selected');
-                    $widget._toggleCheckedAttributes($this, $wrapper);
-                }
-
-                $widget._Rebuild();
-
-                if ($widget.element.parents($widget.options.selectorProduct)
-                        .find(this.options.selectorProductPrice).is(':data(mage-priceBox)')
-                ) {
-                    $widget._UpdatePrice();
-                }
-
-                $widget._loadMedia(eventName);
-                $input.trigger('change');
-            },
 
             _OnChange: function ($this, $widget, eventName) {
                 var $parent = $this.parents('.' + $widget.options.classes.attributeClass),
@@ -135,52 +93,6 @@ define([
                 $input.trigger('change');
             },
 
-            _UpdatePrice: function () {
-                var $widget = this,
-                    $product = $widget.element.parents($widget.options.selectorProduct),
-                    $productPrice = $product.find(this.options.selectorProductPrice),
-                    options = _.object(_.keys($widget.optionsMap), {}),
-                    result,
-                    tierPriceHtml;
-
-                $widget.element.find('.' + $widget.options.classes.attributeClass + '[option-selected]').each(function () {
-                    var attributeId = $(this).attr('attribute-id');
-
-                    options[attributeId] = $(this).attr('option-selected');
-                });
-
-                result = $widget.options.jsonConfig.optionPrices[_.findKey($widget.options.jsonConfig.index, options)];
-
-                $productPrice.trigger(
-                    'updatePrice',
-                    {
-                        'prices': $widget._getPrices(result, $productPrice.priceBox('option').prices)
-                    }
-                );
-
-                if (typeof result != 'undefined' && result.oldPrice.amount !== result.finalPrice.amount) {
-                    $(this.options.slyOldPriceSelector).show();
-                } else {
-                    $(this.options.slyOldPriceSelector).hide();
-                }
-
-                if (typeof result != 'undefined' && result.tierPrices.length) {
-                    if (this.options.tierPriceTemplate) {
-                        tierPriceHtml = mageTemplate(
-                            this.options.tierPriceTemplate,
-                            {
-                                'tierPrices': result.tierPrices,
-                                '$t': $t,
-                                'currencyFormat': this.options.jsonConfig.currencyFormat,
-                                'priceUtils': priceUtils
-                            }
-                        );
-                        $(this.options.tierPriceBlockSelector).html(tierPriceHtml).show();
-                    }
-                } else {
-                    $(this.options.tierPriceBlockSelector).hide();
-                }
-            },
 
             updateBaseImage: function (images, context, isInProductView, eventName) {
                 var gallery = context.find(this.options.mediaGallerySelector).data('gallery');
@@ -249,8 +161,18 @@ define([
                         elem.trigger(triggerClick);
                     }
                 }, this));
-            }
+            },
 
+            _setImageIndex: function (images) {
+                var length = images.length,
+                    i;
+
+                for (i = 0; length > i; i++) {
+                    images[i].i = i + 1;
+                }
+
+                return images;
+            }
         });
         return $.mage.SwatchRenderer;
     }

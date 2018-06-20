@@ -20,6 +20,24 @@ define(['jquery'],
                 } else {
                     this.formElement().save(arguments[0], arguments[1]);
                 }
+            },
+
+            serializeData: function () {
+                this.source.data["product"]["configurable-matrix-serialized"] =
+                    JSON.stringify(this.source.data["configurable-matrix"]);
+
+                this.source.data["product"]["associated_product_ids_serialized"] =
+                    JSON.stringify(this.source.data["associated_product_ids"]);
+
+                this.source.data['configurable-matrix-serialized'] =
+                    JSON.stringify(this.source.data['configurable-matrix']);
+
+                delete this.source.data['configurable-matrix'];
+
+                this.source.data['associated_product_ids_serialized'] =
+                    JSON.stringify(this.source.data['associated_product_ids']);
+
+                delete this.source.data['associated_product_ids'];
             }
         };
 
